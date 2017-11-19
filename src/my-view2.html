@@ -22,10 +22,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     </style>
 
     <div class="card">
-      <div class="circle">2</div>
-      <h1>View Two</h1>
-      <p>Ea duis bonorum nec, falli paulo aliquid ei eum.</p>
-      <p>Id nam odio natum malorum, tibique copiosae expetenda mel ea.Detracto suavitate repudiandae no eum. Id adhuc minim soluta nam.Id nam odio natum malorum, tibique copiosae expetenda mel ea.</p>
+      
+      <h1>Favor capture una imagen de la tienda o del empleado que incurre en la falta</h1>
+      <app-media-image-capture
+      id="imageCapture"
+      stream="[[videoStream]]"
+      focus-mode="single-shot"
+      red-eye-reduction
+      last-photo="{{photo}}">
+  </app-media-image-capture>
     </div>
   </template>
 
@@ -35,5 +40,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     }
 
     window.customElements.define(MyView2.is, MyView2);
+
+    takePhoto: function() {
+    // NOTE: This method also returns a promise that resolves the photo.
+    this.$.imageCapture.takePhoto();
+  }
+    
   </script>
 </dom-module>

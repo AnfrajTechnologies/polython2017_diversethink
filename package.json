@@ -13,6 +13,7 @@
     "test:integration": "polymer build # test that psk builds without error with the CLI"
   },
   "dependencies": {
-    "firebaseui": "^2.4.1"
+    "firebaseui": "^2.4.1",
+    "image-capture": "^0.3.5"
   }
 }

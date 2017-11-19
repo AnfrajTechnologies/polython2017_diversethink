@@ -30,7 +30,9 @@
         signInSuccessUrl: './index2.html',
         signInOptions: [
           // Leave the lines as is for the providers you want to offer your users.
-          firebase.auth.PhoneAuthProvider.PROVIDER_ID
+          firebase.auth.PhoneAuthProvider.PROVIDER_ID,
+          firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+          firebase.auth.FacebookAuthProvider.PROVIDER_ID,
         ],
         // Terms of service url.
         tosUrl: '<your-tos-url>'
@@ -45,7 +47,17 @@
   <body>
     <!-- The surrounding HTML is left untouched by FirebaseUI.
          Your app may use that space for branding, controls and other customizations.-->
-    <h1>Welcome to My Awesome App</h1>
+    <h1>Sistema de Quejas para usuarios</h1>
+    <style>
+    h1{
+      background-color:lightskyblue;
+      text-align: center;
+      text-decoration-color: white;
+    }
+    body{
+      background-image: "image.png";
+    }
+    </style>
     <div id="firebaseui-auth-container"></div>
   </body>
 </html>

@@ -9,6 +9,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 -->
 
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/geo-location/geo-location.html">
 <link rel="import" href="shared-styles.html">
 
 <dom-module id="my-view2">
@@ -22,28 +23,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     </style>
 
     <div class="card">
-      
-      <h1>Favor capture una imagen de la tienda o del empleado que incurre en la falta</h1>
-      <app-media-image-capture
-      id="imageCapture"
-      stream="[[videoStream]]"
-      focus-mode="single-shot"
-      red-eye-reduction
-      last-photo="{{photo}}">
-  </app-media-image-capture>
+      <geo-location latitude="{{latitude}}" longitude="{{longitude}}"></geo-location>
+
     </div>
   </template>
 
   <script>
     class MyView2 extends Polymer.Element {
       static get is() { return 'my-view2'; }
-    }
-
     window.customElements.define(MyView2.is, MyView2);
-
-    takePhoto: function() {
-    // NOTE: This method also returns a promise that resolves the photo.
-    this.$.imageCapture.takePhoto();
   }
     
   </script>

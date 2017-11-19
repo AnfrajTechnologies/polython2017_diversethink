@@ -9,16 +9,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 -->
 
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
-<link rel="import" href="../bower_components/iron-icons/iron-icons.html">
-<link rel="import" href="../bower_components/paper-input/paper-input-decorator.html">
-<link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
-<!-- <link rel="import" href="../bower_components/paper-shadow/paper-shadow.html"> -->>
-<link rel="import" href="../bower_components/paper-fab/paper-fab.html">
-<link rel="import" href="../bower_components/paper-item/paper-item.html">
-<link rel="import" href="../bower_components/paper-input/paper-input.html">
-<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
-<link rel="import" href="../bower_components/paper-checkbox/paper-checkbox.html">
-
 <link rel="import" href="shared-styles.html">
 
 <dom-module id="my-view1">
@@ -26,182 +16,27 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <style include="shared-styles">
       :host {
         display: block;
+
         padding: 10px;
       }
     </style>
 
-
-      <div class="card">
-      <div class="all-messages" id="messages">
-      </div>
-          <paper-input class="flex" label="Type message..." value="{{inputValue}}" on-keyup="sendMyMessage"></paper-input>
-          <paper-fab icon="send" id="sendButton" on-tap="sendMyMessage"></paper-fab>
+    <div class="card">
+      <div align="center">
+      <h1>Poly... :) </h1>
+      <iframe
+      width="350"
+      height="430"
+      src="https://console.dialogflow.com/api-client/demo/embedded/20fce181-47e6-461c-af1e-07f73d6fe2e3">
+   </iframe></div>
     </div>
-    <iron-ajax
-      id="sendInput"
-      method="POST"
-      content-type="application/json"
-      body='{"user_input":"{{inputValue}}"}'
-      url="/postRoute"
-      handles-as="json"
-      on-response="handleResponse"
-      ></iron-ajax>
   </template>
 
   <script>
     class MyView1 extends Polymer.Element {
       static get is() { return 'my-view1'; }
-      static get properties() {
-        return {
-          inputValue:{
-            type: String
-          },
-          responseValue:{
-            type:String
-          }
-        }
-      }
-      sendMyMessage(e) {
-        // the keyCode and charCode check for people hitting 'enter'
-        // the type check is if somebody clicks or taps it 
-        if(e.keyCode === 13 || e.charCode === 13 || e.type === "tap"){
-          console.log('sending message')
-          console.log(this.inputValue)
-          // this portion of code displays the users input in the div so we can see
-          // the history of the conversation
-          var inputPar = document.createElement('p');
-          inputPar.innerHTML = this.inputValue;
-          var messagesList = Polymer.dom(this.root).children[1].getElementsByClassName('all-messages')[0]
-          messagesList.appendChild(inputPar)
-          // this portion would be where you would send the user input to the backend
-          // its commented out because there is no backend set up
-          //this.$.sendInput.generateRequest()
-          // this is a mocked response since the backend is not set up in this project
-          var botResponse = document.createElement('p')
-          botResponse.style.cssText='text-align:right;color:blue;'
-
-          if(this.inputValue==="Hola" || this.inputValue==="hola"|| this.inputValue==="que onda"||this.inputValue==="Que onda"){
-          
-          const hi=['Hola','Que tal usuario','Bienvenido','Buenos dias']
-          this.responseValue  = hi[Math.floor(Math.random()*(hi.length))]
-          botResponse.innerHTML = this.responseValue
-          messagesList.appendChild(botResponse)
-          //reset value to blank after all of this
-          this.inputValue = ""}
-
-          if(this.inputValue==="Hello" || this.inputValue==="hi"|| this.inputValue==="Hi"||this.inputValue==="hello"){
-          
-          this.responseValue  = "Wasaaaa"
-          botResponse.innerHTML = this.responseValue
-          messagesList.appendChild(botResponse)
-          //reset value to blank after all of this
-          this.inputValue = ""}
-
-          if (this.inputValue === "Bien" || this.inputValue =="bien") {
-    this.responseValue = "Que bueno, ¿en que puedo ayudarte?"
-    botResponse.innerHTML = this.responseValue
-          messagesList.appendChild(botResponse)
-          //reset value to blank after all of this
-          this.inputValue = ""
-  }           
-
-  if (this.inputValue === "Más o menos" || this.inputValue =="Mas o menos" || this.inputValue === "más o menos" || this.inputValue =="mas o menos" ||this.inputValue === "No muy bien" || this.inputValue =="no muy bien") {
-    this.responseValue = "¿Por?, ¿te puedo ayudar en algo para que te sientas mejor?"
-    botResponse.innerHTML = this.responseValue
-          messagesList.appendChild(botResponse)
-          //reset value to blank after all of this
-          this.inputValue = ""
-  }
-
-  if (this.inputValue === "mal" || this.inputValue =="Mal") {
-    this.responseValue = "Espero que todo mejore pronto, ¿puedo ayudarte en algo?"
-    botResponse.innerHTML = this.responseValue
-          messagesList.appendChild(botResponse)
-          //reset value to blank after all of this
-          this.inputValue = ""
-  } 
-
-  if (this.inputValue === "Cuentame un chiste" || this.inputValue =="cuentame un chiste" || this.inputValue =="Cuéntame un chiste" || this.inputValue =="cuéntame un chiste") {
-this.responseValue = "El burrito esta triste"
-botResponse.innerHTML = this.responseValue
-          messagesList.appendChild(botResponse)
-          //reset value to blank after all of this
-          this.inputValue = ""
-  } 
-
-  if (this.inputValue === "¿Serías mi amante?" || this.inputValue =="¿Serias mi amante?" || this.inputValue =="¿serias mi amante?" || this.inputValue =="¿serías mi amante?" || this.inputValue =="Serias mi amante?" || this.inputValue =="serias mi amante?" || this.inputValue =="serías mi amante?" || this.inputValue == "Serías mi amante?") {
-this.responseValue = "Es algo imposible que pase porque soy una máquina"
-botResponse.innerHTML = this.responseValue
-          messagesList.appendChild(botResponse)
-          //reset value to blank after all of this
-          this.inputValue = ""
-  } 
-
-
-  if (this.inputValue === "¿quién es tu padre?" || this.inputValue =="¿Quién es tu padre?" || this.inputValue =="¿quien es tu padre?" || this.inputValue =="¿Quien es tu padre?" || this.inputValue =="¿Quién te creo?" || this.inputValue =="¿quien te creo?" || this.inputValue === "quién es tu padre?" || this.inputValue =="Quién es tu padre?" || this.inputValue =="quien es tu padre?" || this.inputValue =="Quien es tu padre?" || this.inputValue =="Quién te creo?" || this.inputValue =="quien te creo?") {
-this.responseValue = "Mi creador es el mismo que el tuyo"
-botResponse.innerHTML = this.responseValue
-          messagesList.appendChild(botResponse)
-          //reset value to blank after all of this
-          this.inputValue = ""
-  } 
-         
-  if (this.inputValue === "¿Cual es el límite del espacio?" || this.inputValue =="¿Cual es el limite del espacio?" || this.inputValue =="¿cual es el límite del espacio?" || this.inputValue =="¿cual es el limite del espacio?" || this.inputValue === "Cual es el límite del espacio?" || this.inputValue =="Cual es el limite del espacio?" || this.inputValue =="cual es el límite del espacio?" || this.inputValue =="cual es el limite del espacio?" ){
-  this.responseValue = "Es una pregunta algo complicada de responder ya que la NASA demuestra que existen planetas a años luz, por lo que el espacio para mi no tiene límites"
-  botResponse.innerHTML = this.responseValue
-          messagesList.appendChild(botResponse)
-          //reset value to blank after all of this
-          this.inputValue = ""
-    } 
-
-    if (this.inputValue === "Dime el clima de mañana" || this.inputValue =="¿Cuál será el clima mañana?" || this.inputValue =="Cuál será el clima mañana?" || this.inputValue =="¿cuál será el clima mañana?" || this.inputValue =="cuál será el clima mañana?" || this.inputValue =="¿Cual será el clima mañana?" || this.inputValue =="Cual será el clima mañana?" || this.inputValue =="¿cual será el clima mañana?" || this.inputValue =="cual será el clima mañana?" || this.inputValue =="El clima de mañana" || this.inputValue =="Dame el clima de mañana" || this.inputValue =="el clima de mañana" || this.inputValue =="dame el clima de mañana" || this.inputValue === "dime el clima de mañana"){
-  this.responseValue = "El Domingo 19 en la Ciudad de México será mínimo 44ºC-68ºC, seminublado, clima según The Weather Channel"
-  botResponse.innerHTML = this.responseValue
-          messagesList.appendChild(botResponse)
-          //reset value to blank after all of this
-          this.inputValue = ""
-    } 
-
-    if (this.inputValue === "Dime el clima de la proxima semana" || this.inputValue =="¿Cuál será el clima de la proxima semana?" || this.inputValue =="Cuál será el clima de la proxima semana?" || this.inputValue =="¿cuál será el clima de la proxima semana?" || this.inputValue =="cuál será el clima de la proxima semana?" || this.inputValue =="¿Cual será el clima de la proxima semana?" || this.inputValue =="Cual será el clima de la proxima semana?" || this.inputValue =="¿cual será el clima de la proxima semana?" || this.inputValue =="cual será el clima de la proxima semana?" || this.inputValue =="El clima de la proxima semana" || this.inputValue =="Dame el clima de la proxima semana" || this.inputValue === "dime el clima de la próxima semana" || this.inputValue =="¿cuál será el clima de la próxima semana?" || this.inputValue =="cuál será el clima de la próxima semana?" || this.inputValue =="¿cuál será el clima de la próxima semana?" || this.inputValue =="cuál será el clima de la próxima semana?" || this.inputValue =="¿cual será el clima de la próxima semana?" || this.inputValue =="cual será el clima de la próxima semana?" || this.inputValue =="¿cual será el clima de la próxima semana?" || this.inputValue =="cual será el clima de la próxima semana?" || this.inputValue =="el clima de la próxima semana" || this.inputValue =="dame el clima de la próxima semana"){
-  this.responseValue = "El clima de la próxima semana en la CDMX será: el Lunes 20 mínimo 47ºC,máximo 74ºC, soleado, el Martes 21 mínimo 46ºC, máximo 75ºC, seminublado, el Miércoles 22 mínimo 42ºC, máximo 67ºC, soleado, el Jueves 23 mínimo 42ºC, máximo 70ºC, soleado, el Viernes 24 mínimo 43ºC, máximo 70ºC, soleado, el Sábado 25 mínimo 46ºC, máximo 73ºC, soleado y el Domingo 26 mínimo 44ºC, máximo 73ºC, soleado, clima según The Weather Channel"
-  botResponse.innerHTML = this.responseValue
-          messagesList.appendChild(botResponse)
-          //reset value to blank after all of this
-          this.inputValue = ""
-    } 
-
-if (this.inputValue === "Cantame una canción" || this.inputValue =="Canta una canción"  || this.inputValue =="Canta algo"  ||  this.inputValue === "cantame una canción" || this.inputValue =="canta una canción"  || this.inputValue =="canta algo" || this.inputValue === "Cantame una cancion" || this.inputValue =="Canta una cancion"  ||  this.inputValue === "cantame una cancion" || this.inputValue =="canta una cancion") {
-    this.responseValue = "La cucaracha, la cucaracha, ya no puede caminar, porque no tiene, porque le falta, una patita para caminar."
-    botResponse.innerHTML = this.responseValue
-          messagesList.appendChild(botResponse)
-          //reset value to blank after all of this
-          this.inputValue = ""
-  }
-
-          else {
-          this.responseValue  = "podrias repetir la pregunta"
-          botResponse.innerHTML = this.responseValue
-          messagesList.appendChild(botResponse)
-          //reset value to blank after all of this
-          this.inputValue = ""}
-        }
-      }
-      // this function will get hit when the backend replies to request with data
-      // in this function unpack the payload and set it to the responseValue property
-      // then place it in a paragraph element and append it to the messages list div
-      handleResponse(data){
-        console.log('handling response');
-        console.log(data.detail);
-        var botResponse = document.createElement('p')
-        botResponse.style.cssText='text-align:right;color:blue;'
-        // response would be something like data.detail...
-        // mess around with dev tools console in browser to get exact syntax
-        this.responseValue  = "this is a where your bot response would go"
-        botResponse.innerHTML = this.responseValue
-        var messagesList = Polymer.dom(this.root).children[1].getElementsByClassName('all-messages')[0]
-        messagesList.appendChild(botResponse)
-      }
     }
+
     window.customElements.define(MyView1.is, MyView1);
   </script>
 </dom-module>

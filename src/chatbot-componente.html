@@ -1,0 +1,241 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<dom-module id="chatbot-componente">
+    <template>
+        <p>Hola mundo</p>
+        <div id='bodybox'>                
+                  <div id='chatborder'>                
+                    <p id="chatlog7" class="chatlog">&nbsp;</p>                
+                    <p id="chatlog6" class="chatlog">&nbsp;</p>                
+                    <p id="chatlog5" class="chatlog">&nbsp;</p>                
+                    <p id="chatlog4" class="chatlog">&nbsp;</p>                
+                    <p id="chatlog3" class="chatlog">&nbsp;</p>                
+                    <p id="chatlog2" class="chatlog">&nbsp;</p>                
+                    <p id="chatlog1" class="chatlog">&nbsp;</p>                
+                    <input type="text" name="chat" id="chatbox" placeholder="Hi there! Type here to talk to me." onfocus="this.value=''" >
+                  </div>
+        <div>
+    </template>
+
+    <style>
+        :host{
+            background-color: #CCCCCC;
+        }
+
+
+
+
+
+        body {
+  font: 15px arial, sans-serif;
+  background-color: #d9d9d9;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+#bodybox {
+  margin: auto;
+  max-width: 550px;
+  font: 15px arial, sans-serif;
+  background-color: white;
+  border-style: solid;
+  border-width: 1px;
+  padding-top: 20px;
+  padding-bottom: 25px;
+  padding-right: 25px;
+  padding-left: 25px;
+  box-shadow: 5px 5px 5px grey;
+  border-radius: 15px;
+}
+
+#chatborder {
+  border-style: solid;
+  background-color: #f6f9f6;
+  border-width: 3px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 15px;
+  padding-right: 20px;
+  padding-left: 15px;
+  border-radius: 15px;
+}
+
+.chatlog {
+   font: 15px arial, sans-serif;
+}
+
+#chatbox {
+  font: 17px arial, sans-serif;
+  height: 22px;
+  width: 100%;
+}
+
+h1 {
+  margin: auto;
+}
+
+pre {
+  background-color: #f0f0f0;
+  margin-left: 20px;
+}
+</style>
+
+    <script>
+        Polymer({
+            is: 'chatbot-componente'
+        });
+
+
+
+        nlp = window.nlp_compromise;
+
+var messages = [], //array that hold the record of each string in chat
+  lastUserMessage = "", //keeps track of the most recent input string from the user
+  botMessage = "", //var keeps track of what the chatbot is going to say
+  botName = 'Chatbot', //name of the chatbot
+  talking = true; //when false the speach function doesn't work
+
+function chatbotResponse() {
+  talking = true;
+  botMessage = "¿Puedes repetirme tu pregunta por favor?"; //the default message
+
+  if (lastUserMessage === 'Hola' || lastUserMessage =='hola' || lastUserMessage =='que onda' || lastUserMessage =='Que onda') {
+    const hi = ['Hola Juan, ¿como estas?']
+    botMessage = hi[Math.floor(Math.random()*(hi.length))];;
+  }
+
+if (lastUserMessage === 'Hello' || lastUserMessage =='Hi' || lastUserMessage =='hi' || lastUserMessage =='hello') {
+    botMessage = 'Wasaaaaa';
+  }
+
+  if (lastUserMessage === 'Bien' || lastUserMessage =='bien' || lastUserMessage =='bien y tú?' || lastUserMessage =='Bien y tú?' || lastUserMessage =='bien y tu?' || lastUserMessage =='Bien y tu?') {
+    botMessage = 'Bien también, gracias por preguntar, ¿en que puedo ayudarte?';
+  }
+
+if (lastUserMessage === 'Más o menos' || lastUserMessage =='Mas o menos' || lastUserMessage === 'más o menos' || lastUserMessage =='mas o menos' ||lastUserMessage === 'No muy bien' || lastUserMessage =='no muy bien') {
+    botMessage = '¿Por?, ¿te puedo ayudar en algo para que te sientas mejor?';
+  }
+
+if (lastUserMessage === 'mal' || lastUserMessage =='Mal') {
+    botMessage = 'Espero que todo mejore pronto, ¿puedo ayudarte en algo?';
+  } 
+
+if (lastUserMessage === 'Cuentame un chiste' || lastUserMessage =='cuentame un chiste' || lastUserMessage =='Cuéntame un chiste' || lastUserMessage =='cuéntame un chiste') {
+botMessage = 'El burrito esta triste';
+  } 
+
+if (lastUserMessage === '¿Serías mi amante?' || lastUserMessage =='¿Serias mi amante?' || lastUserMessage =='¿serias mi amante?' || lastUserMessage =='¿serías mi amante?' || lastUserMessage =='Serias mi amante?' || lastUserMessage =='serias mi amante?' || lastUserMessage =='serías mi amante?' || lastUserMessage == 'Serías mi amante?') {
+botMessage = 'Es algo imposible que pase porque soy una máquina';
+  } 
+
+if (lastUserMessage === '¿quién es tu padre?' || lastUserMessage =='¿Quién es tu padre?' || lastUserMessage =='¿quien es tu padre?' || lastUserMessage =='¿Quien es tu padre?' || lastUserMessage =='¿Quién te creo?' || lastUserMessage =='¿quien te creo?' || lastUserMessage === 'quién es tu padre?' || lastUserMessage =='Quién es tu padre?' || lastUserMessage =='quien es tu padre?' || lastUserMessage =='Quien es tu padre?' || lastUserMessage =='Quién te creo?' || lastUserMessage =='quien te creo?') {
+botMessage = 'Mi creador es el mismo que el tuyo';
+  } 
+
+  if (lastUserMessage === '¿Cual es el límite del espacio?' || lastUserMessage =='¿Cual es el limite del espacio?' || lastUserMessage =='¿cual es el límite del espacio?' || lastUserMessage =='¿cual es el limite del espacio?' || lastUserMessage === 'Cual es el límite del espacio?' || lastUserMessage =='Cual es el limite del espacio?' || lastUserMessage =='cual es el límite del espacio?' || lastUserMessage =='cual es el limite del espacio?' ){
+  botMessage = 'Es una pregunta algo complicada de responder ya que la NASA demuestra que existen planetas a años luz, por lo que el espacio para mi no tiene límites';
+    } 
+
+if (lastUserMessage === 'Dime el clima de mañana' || lastUserMessage =='¿Cuál será el clima mañana?' || lastUserMessage =='Cuál será el clima mañana?' || lastUserMessage =='¿cuál será el clima mañana?' || lastUserMessage =='cuál será el clima mañana?' || lastUserMessage =='¿Cual será el clima mañana?' || lastUserMessage =='Cual será el clima mañana?' || lastUserMessage =='¿cual será el clima mañana?' || lastUserMessage =='cual será el clima mañana?' || lastUserMessage =='El clima de mañana' || lastUserMessage =='Dame el clima de mañana' || lastUserMessage =='el clima de mañana' || lastUserMessage =='dame el clima de mañana' || lastUserMessage === 'dime el clima de mañana'){
+  botMessage = 'El Domingo 19 en la Ciudad de México será mínimo 44ºC-68ºC, seminublado, clima según The Weather Channel';
+    } 
+
+if (lastUserMessage === 'Dime el clima de la proxima semana' || lastUserMessage =='¿Cuál será el clima de la proxima semana?' || lastUserMessage =='Cuál será el clima de la proxima semana?' || lastUserMessage =='¿cuál será el clima de la proxima semana?' || lastUserMessage =='cuál será el clima de la proxima semana?' || lastUserMessage =='¿Cual será el clima de la proxima semana?' || lastUserMessage =='Cual será el clima de la proxima semana?' || lastUserMessage =='¿cual será el clima de la proxima semana?' || lastUserMessage =='cual será el clima de la proxima semana?' || lastUserMessage =='El clima de la proxima semana' || lastUserMessage =='Dame el clima de la proxima semana' || lastUserMessage === 'dime el clima de la próxima semana' || lastUserMessage =='¿cuál será el clima de la próxima semana?' || lastUserMessage =='cuál será el clima de la próxima semana?' || lastUserMessage =='¿cuál será el clima de la próxima semana?' || lastUserMessage =='cuál será el clima de la próxima semana?' || lastUserMessage =='¿cual será el clima de la próxima semana?' || lastUserMessage =='cual será el clima de la próxima semana?' || lastUserMessage =='¿cual será el clima de la próxima semana?' || lastUserMessage =='cual será el clima de la próxima semana?' || lastUserMessage =='el clima de la próxima semana' || lastUserMessage =='dame el clima de la próxima semana'){
+  botMessage = 'El clima de la próxima semana en la CDMX será: el Lunes 20 mínimo 47ºC,máximo 74ºC, soleado, el Martes 21 mínimo 46ºC, máximo 75ºC, seminublado, el Miércoles 22 mínimo 42ºC, máximo 67ºC, soleado, el Jueves 23 mínimo 42ºC, máximo 70ºC, soleado, el Viernes 24 mínimo 43ºC, máximo 70ºC, soleado, el Sábado 25 mínimo 46ºC, máximo 73ºC, soleado y el Domingo 26 mínimo 44ºC, máximo 73ºC, soleado, clima según The Weather Channel';
+    } 
+
+if (lastUserMessage === 'Cantame una canción' || lastUserMessage =='Canta una canción'  || lastUserMessage =='Canta algo'  ||  lastUserMessage === 'cantame una canción' || lastUserMessage =='canta una canción'  || lastUserMessage =='canta algo' || lastUserMessage === 'Cantame una cancion' || lastUserMessage =='Canta una cancion'  ||  lastUserMessage === 'cantame una cancion' || lastUserMessage =='canta una cancion') {
+    botMessage = 'La cucaracha, la cucaracha, ya no puede caminar, porque no tiene, porque le falta, una patita para caminar.';
+  }
+
+if (lastUserMessage === '¿Cuanto debo?' || lastUserMessage =='¿Cual es mi deuda?' || lastUserMessage =='¿Debo algo a mi tarjeta?' || lastUserMessage =='¿cual es mi deuda?' || lastUserMessage =='¿debo algo a mi tarjeta?' || lastUserMessage === '¿cuanto debo?' || lastUserMessage === 'Cuanto debo?' || lastUserMessage =='Cual es mi deuda?' || lastUserMessage =='Debo algo a mi tarjeta?' || lastUserMessage =='cual es mi deuda?' || lastUserMessage =='debo algo a mi tarjeta?' || lastUserMessage === 'cuanto debo?') {
+    botMessage = '2,000.00 pesos';
+  }
+
+if (lastUserMessage === '¿Credito que puedo tener?' || lastUserMessage =='¿que crédito podría tener?' || lastUserMessage =='¿Cuanto crédito me dan?' || lastUserMessage =='¿Que crédito podría tener?' || lastUserMessage =='¿cuanto crédito me dan?'  || lastUserMessage =='que crédito podría tener?' || lastUserMessage =='Cuanto me crédito te dan?' || lastUserMessage =='Que crédito podría tener?'){
+  botMessage = '75,000.00 pesos';
+}
+
+if (lastUserMessage === '¿Préstamo que puedo tener?' || lastUserMessage =='¿Préstamo podría tener?' || lastUserMessage =='¿Cuanto préstamo me darían?' || lastUserMessage =='¿Que préstamo podría tener?' || lastUserMessage =='¿cuanto préstamo me dan?'  || lastUserMessage =='que préstamo podría tener?' || lastUserMessage =='Cuanto me dan de préstamo?' || lastUserMessage =='Que préstamo podría tener?'){
+  botMessage = '125,000.00 pesos';
+}
+
+if (lastUserMessage === '¿Cuales son las comisiones de las tarjetas?' || lastUserMessage =='Comisiones de las tarjetas' || lastUserMessage =='Comisiones de las tarjetas?' || lastUserMessage === '¿cuales son las comisiones de las tarjetas?' || lastUserMessage =='comisiones de las tarjetas' || lastUserMessage =='comisiones de las tarjetas?'){
+  botMessage = 'Anualidad del titular mínimo 200 pesos máximo 15,000 pesos, retiro de efectivo en ATM`S mínmimo 20 pesos o 1.5%, máximo 200 pesos o 10%, gastos de cobranza mínimo 100 pesos, máximo 1,000 pesos, imprimir estados de cuentas adicionales mínimo 10 pesos, máximo 60 pesos y perdida o extravío del plástico mínimo 40 pesos o 500 pesos. ¿Tienes alguna otra pregunta?';
+}
+
+if (lastUserMessage === '¿Cuales son las comisiones de mis tarjetas?' || lastUserMessage =='Comisiones de mis tarjetas' || lastUserMessage =='Comisiones de mis tarjetas?' || lastUserMessage === '¿cuales son las comisiones de mis tarjetas?' || lastUserMessage =='comisiones de mis tarjetas' || lastUserMessage =='cuales son las comisiones de mis tarjetas?'){
+  botMessage = 'Tienes una tarjeta American Exress Platinum la cual es porque tus ingresos son de 30,000 pesos, la cual tiene una anualidad de 1,785 pesos con un costo anual del 35.2%, pero tienes un 15% de descuento de boletos en interjet y puntos sin costo de por vida. Aparte tienes otra tarjeta Bancomer oro la cual es porque tus ingresos son de 20,000 pesos, la cual tiene una anualidad de 840 pesos con un costo anual del 31.8%, pero tienes un 15% de descuento en tus compras. ¿Tienes alguna otra pregunta?';
+}
+
+if (lastUserMessage === 'Muchas Gracias' || lastUserMessage =='muchas gracias'  || lastUserMessage =='gracias'  || lastUserMessage =='Gracias') {
+    botMessage = 'No hay de que, algo más ¿en lo que te pueda ayudar?';
+  }
+
+if (lastUserMessage === 'No' || lastUserMessage =='no'  || lastUserMessage =='no creo'  || lastUserMessage =='No creo' || lastUserMessage =='Por el momento no'  || lastUserMessage =='por el momento no') {
+    botMessage = 'Espero que te pudiera ayudar, nos vemos pronto';
+  }
+
+if (lastUserMessage === 'Si' || lastUserMessage =='si'  || lastUserMessage =='Sí'  || lastUserMessage =='sí') {
+    botMessage = '¿Qué otra pregunta tienes?';
+  }
+
+if (lastUserMessage === 'Cual es tu nombre' || lastUserMessage =='cual es tu nombre'  || lastUserMessage =='Dime tu nombre'  || lastUserMessage =='dime tu nombre' || lastUserMessage =='Como te llamas'  || lastUserMessage =='como te llamas' ) {
+    botMessage = 'Mi nombre es Jarvis';
+  }
+}
+
+function newEntry() {
+  //if the message from the user isn't empty then run 
+  
+
+  if (document.querySelector('chatbox').value != "") {
+    //pulls the value from the chatbox ands sets it to lastUserMessage
+    lastUserMessage = document.querySelector('chatbox').value;
+    //sets the chat box to be clear
+    document.querySelector('chatbox').value = "";
+    //adds the value of the chatbox to the array messages
+    messages.push(lastUserMessage);
+    //Speech(lastUserMessage);  //says what the user typed outloud
+    //sets the variable botMessage in response to lastUserMessage
+    chatbotResponse();
+    //add the chatbot's name and message to the array messages
+    messages.push("<b>" + botName + ":</b> " + botMessage);
+    // says the message using the text to speech function written below
+    Speech(botMessage);
+    //outputs the last few array elements of messages to html
+    for (var i = 1; i < 8; i++) {
+      if (messages[messages.length - i])
+      document.querySelector('chatlog'+i).innerHTML = messages[messages.length - i];
+    }
+  }
+}
+
+function Speech(say) {
+  if ('speechSynthesis' in window && talking) {
+    var utterance = new SpeechSynthesisUtterance(say);
+    speechSynthesis.speak(utterance);
+  }
+}
+
+//runs the keypress() function when a key is pressed
+document.onkeypress = keyPress;
+//if the key pressed is 'enter' runs the function newEntry()
+function keyPress(e) {
+  var x = e || window.event;
+  var key = (x.keyCode || x.which);
+  if (key == 13 || key == 3) {
+    //runs this function when enter is pressed
+    newEntry();
+  }
+  if (key == 38) {
+    console.log('hi')
+      //document.getElementById("chatbox").value = lastUserMessage;
+  }
+}
+
+    </script>
+</dom-module>

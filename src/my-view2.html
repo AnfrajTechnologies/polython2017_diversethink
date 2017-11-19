@@ -9,7 +9,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 -->
 
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
-<link rel="import" href="../bower_components/geo-location/geo-location.html">
+<link rel="import" href="bower_components/google-map/google-map.html">
 <link rel="import" href="shared-styles.html">
 
 <dom-module id="my-view2">
@@ -21,17 +21,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         padding: 10px;
       }
     </style>
-
-      <dom-bind>
-        <template is="dom-bind">
-          <geo-location latitude="{{latitude}}" longitude="{{longitude}}"></geo-location>
-
-          <ul>
-            <li>Latitude: [[latitude]]</li>
-            <li>Longitude: [[longitude]]</li>
-          </ul>
-        </template>
-      </dom-bind>
+          <google-map latitude="40.4" longitude="-3.7" zoom="11">
+              <google-map-marker latitude="40.421432" longitude="-3.7536663" title="Casa de Campo de Madrid"></google-map-marker>
+            </google-map>
+            <div><label>Ingresa tu queja:</label><input id="nfo" type="text"></input></div>
   </template>
 
   <script>

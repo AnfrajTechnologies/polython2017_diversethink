@@ -1,27 +1,88 @@
-[debug] [2017-11-19T17:23:55.611Z] ----------------------------------------------------------------------
-[debug] [2017-11-19T17:23:55.614Z] Command:       /usr/local/Cellar/node/8.9.1/bin/node /usr/local/bin/firebase serve
-[debug] [2017-11-19T17:23:55.614Z] CLI Version:   3.15.2
-[debug] [2017-11-19T17:23:55.614Z] Platform:      darwin
-[debug] [2017-11-19T17:23:55.614Z] Node Version:  v8.9.1
-[debug] [2017-11-19T17:23:55.615Z] Time:          Sun Nov 19 2017 11:23:55 GMT-0600 (CST)
-[debug] [2017-11-19T17:23:55.615Z] ----------------------------------------------------------------------
+[debug] [2017-11-19T18:00:54.925Z] ----------------------------------------------------------------------
+[debug] [2017-11-19T18:00:54.927Z] Command:       /usr/local/Cellar/node/8.9.1/bin/node /usr/local/bin/firebase serve
+[debug] [2017-11-19T18:00:54.928Z] CLI Version:   3.15.2
+[debug] [2017-11-19T18:00:54.928Z] Platform:      darwin
+[debug] [2017-11-19T18:00:54.928Z] Node Version:  v8.9.1
+[debug] [2017-11-19T18:00:54.928Z] Time:          Sun Nov 19 2017 12:00:54 GMT-0600 (CST)
+[debug] [2017-11-19T18:00:54.928Z] ----------------------------------------------------------------------
 [debug] 
-[debug] [2017-11-19T17:23:55.626Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2017-11-19T17:23:55.627Z] > authorizing via signed-in user
-[debug] [2017-11-19T17:23:55.629Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/polymer-chatbot  
- Sun Nov 19 2017 11:23:55 GMT-0600 (CST)
-[debug] [2017-11-19T17:23:56.369Z] <<< HTTP RESPONSE 200
-[debug] [2017-11-19T17:23:56.370Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/polymer-chatbot/tokens  
- Sun Nov 19 2017 11:23:56 GMT-0600 (CST)
-[debug] [2017-11-19T17:23:56.985Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-19T18:00:54.941Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-11-19T18:00:54.941Z] > authorizing via signed-in user
+[debug] [2017-11-19T18:00:54.943Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/polymer-chatbot  
+ Sun Nov 19 2017 12:00:54 GMT-0600 (CST)
+[debug] [2017-11-19T18:00:55.912Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-19T18:00:55.913Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/polymer-chatbot/tokens  
+ Sun Nov 19 2017 12:00:55 GMT-0600 (CST)
+[debug] [2017-11-19T18:00:56.348Z] <<< HTTP RESPONSE 200
 [info] 
 [info] === Serving from '/Users/josecervantesmoreno/polython2017'...
 [info] 
-[debug] [2017-11-19T17:23:56.989Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/polymer-chatbot  
- Sun Nov 19 2017 11:23:56 GMT-0600 (CST)
-[debug] [2017-11-19T17:23:57.924Z] <<< HTTP RESPONSE 200
-[debug] [2017-11-19T17:23:57.925Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/407729427102/clients/_:getWebAppConfig  
- Sun Nov 19 2017 11:23:57 GMT-0600 (CST)
-[debug] [2017-11-19T17:23:58.892Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-19T18:00:56.353Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/polymer-chatbot  
+ Sun Nov 19 2017 12:00:56 GMT-0600 (CST)
+[debug] [2017-11-19T18:00:56.883Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-19T18:00:56.883Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/407729427102/clients/_:getWebAppConfig  
+ Sun Nov 19 2017 12:00:56 GMT-0600 (CST)
+[debug] [2017-11-19T18:00:57.527Z] <<< HTTP RESPONSE 200
+[info] ✔  hosting: Local server: http://localhost:5000
+
+[debug] [2017-11-19T18:17:13.441Z] ----------------------------------------------------------------------
+[debug] [2017-11-19T18:17:13.444Z] Command:       /usr/local/Cellar/node/8.9.1/bin/node /usr/local/bin/firebase serve
+[debug] [2017-11-19T18:17:13.444Z] CLI Version:   3.15.2
+[debug] [2017-11-19T18:17:13.444Z] Platform:      darwin
+[debug] [2017-11-19T18:17:13.444Z] Node Version:  v8.9.1
+[debug] [2017-11-19T18:17:13.445Z] Time:          Sun Nov 19 2017 12:17:13 GMT-0600 (CST)
+[debug] [2017-11-19T18:17:13.445Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-11-19T18:17:13.464Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-11-19T18:17:13.464Z] > authorizing via signed-in user
+[debug] [2017-11-19T18:17:13.467Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/polymer-chatbot  
+ Sun Nov 19 2017 12:17:13 GMT-0600 (CST)
+[debug] [2017-11-19T18:17:14.270Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-19T18:17:14.272Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/polymer-chatbot/tokens  
+ Sun Nov 19 2017 12:17:14 GMT-0600 (CST)
+[debug] [2017-11-19T18:17:14.794Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/josecervantesmoreno/polython2017'...
+[info] 
+[debug] [2017-11-19T18:17:14.799Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/polymer-chatbot  
+ Sun Nov 19 2017 12:17:14 GMT-0600 (CST)
+[debug] [2017-11-19T18:17:15.483Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-19T18:17:15.483Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/407729427102/clients/_:getWebAppConfig  
+ Sun Nov 19 2017 12:17:15 GMT-0600 (CST)
+[debug] [2017-11-19T18:17:16.331Z] <<< HTTP RESPONSE 200
+[warn] ⚠  hosting: Port 5000 is not available. Trying another port...
+[debug] [2017-11-19T18:17:16.346Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/polymer-chatbot  
+ Sun Nov 19 2017 12:17:16 GMT-0600 (CST)
+[debug] [2017-11-19T18:17:16.767Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-19T18:17:16.768Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/407729427102/clients/_:getWebAppConfig  
+ Sun Nov 19 2017 12:17:16 GMT-0600 (CST)
+[debug] [2017-11-19T18:17:17.457Z] <<< HTTP RESPONSE 200
+[info] ✔  hosting: Local server: http://localhost:5004
+
+[debug] [2017-11-19T18:26:25.153Z] ----------------------------------------------------------------------
+[debug] [2017-11-19T18:26:25.156Z] Command:       /usr/local/Cellar/node/8.9.1/bin/node /usr/local/bin/firebase serve
+[debug] [2017-11-19T18:26:25.156Z] CLI Version:   3.15.2
+[debug] [2017-11-19T18:26:25.156Z] Platform:      darwin
+[debug] [2017-11-19T18:26:25.156Z] Node Version:  v8.9.1
+[debug] [2017-11-19T18:26:25.156Z] Time:          Sun Nov 19 2017 12:26:25 GMT-0600 (CST)
+[debug] [2017-11-19T18:26:25.156Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-11-19T18:26:25.170Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-11-19T18:26:25.170Z] > authorizing via signed-in user
+[debug] [2017-11-19T18:26:25.172Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/polymer-chatbot  
+ Sun Nov 19 2017 12:26:25 GMT-0600 (CST)
+[debug] [2017-11-19T18:26:25.889Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-19T18:26:25.891Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/polymer-chatbot/tokens  
+ Sun Nov 19 2017 12:26:25 GMT-0600 (CST)
+[debug] [2017-11-19T18:26:26.502Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/josecervantesmoreno/polython2017'...
+[info] 
+[debug] [2017-11-19T18:26:26.505Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/polymer-chatbot  
+ Sun Nov 19 2017 12:26:26 GMT-0600 (CST)
+[debug] [2017-11-19T18:26:27.182Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-19T18:26:27.182Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/407729427102/clients/_:getWebAppConfig  
+ Sun Nov 19 2017 12:26:27 GMT-0600 (CST)
+[debug] [2017-11-19T18:26:27.909Z] <<< HTTP RESPONSE 200
 [info] ✔  hosting: Local server: http://localhost:5000
 

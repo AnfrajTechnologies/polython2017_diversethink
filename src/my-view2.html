@@ -22,16 +22,22 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
     </style>
 
-    <div class="card">
-      <geo-location latitude="{{latitude}}" longitude="{{longitude}}"></geo-location>
+      <dom-bind>
+        <template is="dom-bind">
+          <geo-location latitude="{{latitude}}" longitude="{{longitude}}"></geo-location>
 
-    </div>
+          <ul>
+            <li>Latitude: [[latitude]]</li>
+            <li>Longitude: [[longitude]]</li>
+          </ul>
+        </template>
+      </dom-bind>
   </template>
 
   <script>
     class MyView2 extends Polymer.Element {
       static get is() { return 'my-view2'; }
-    window.customElements.define(MyView2.is, MyView2);
+      window.customElements.define(MyView2.is, MyView2);
   }
     
   </script>

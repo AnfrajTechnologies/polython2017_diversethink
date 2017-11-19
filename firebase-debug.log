@@ -1,0 +1,27 @@
+[debug] [2017-11-19T17:23:55.611Z] ----------------------------------------------------------------------
+[debug] [2017-11-19T17:23:55.614Z] Command:       /usr/local/Cellar/node/8.9.1/bin/node /usr/local/bin/firebase serve
+[debug] [2017-11-19T17:23:55.614Z] CLI Version:   3.15.2
+[debug] [2017-11-19T17:23:55.614Z] Platform:      darwin
+[debug] [2017-11-19T17:23:55.614Z] Node Version:  v8.9.1
+[debug] [2017-11-19T17:23:55.615Z] Time:          Sun Nov 19 2017 11:23:55 GMT-0600 (CST)
+[debug] [2017-11-19T17:23:55.615Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-11-19T17:23:55.626Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-11-19T17:23:55.627Z] > authorizing via signed-in user
+[debug] [2017-11-19T17:23:55.629Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/polymer-chatbot  
+ Sun Nov 19 2017 11:23:55 GMT-0600 (CST)
+[debug] [2017-11-19T17:23:56.369Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-19T17:23:56.370Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/polymer-chatbot/tokens  
+ Sun Nov 19 2017 11:23:56 GMT-0600 (CST)
+[debug] [2017-11-19T17:23:56.985Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/josecervantesmoreno/polython2017'...
+[info] 
+[debug] [2017-11-19T17:23:56.989Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/polymer-chatbot  
+ Sun Nov 19 2017 11:23:56 GMT-0600 (CST)
+[debug] [2017-11-19T17:23:57.924Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-19T17:23:57.925Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/407729427102/clients/_:getWebAppConfig  
+ Sun Nov 19 2017 11:23:57 GMT-0600 (CST)
+[debug] [2017-11-19T17:23:58.892Z] <<< HTTP RESPONSE 200
+[info] ✔  hosting: Local server: http://localhost:5000
+
